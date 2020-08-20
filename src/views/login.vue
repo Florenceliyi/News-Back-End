@@ -60,6 +60,7 @@ export default {
           if (res.data.message == "登录成功") {
             //储存token
             localStorage.setItem("token", res.data.data.token);
+            localStorage.setItem("userId", res.data.data.user.id);
             //提示登录成功;
             this.$message({
               message: "ログイン成功～",

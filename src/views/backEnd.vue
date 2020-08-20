@@ -28,7 +28,14 @@
           </el-menu>
         </el-aside>
         <el-main>
-          <div class="meta">{{meta}}</div>
+          <div class="meta">
+            {{meta}}
+            <!-- <el-breadcrumb separator-class="el-icon-arrow-right" class="meta">
+              <el-breadcrumb-item :to="{ path: '/backEnd' }">后台首页</el-breadcrumb-item>
+              <el-breadcrumb-item :to="{ path: '/backEnd/newsLists' }">新闻详情</el-breadcrumb-item>
+              <el-breadcrumb-item :to="{ path: '/backEnd/publishPage' }">文章编辑</el-breadcrumb-item>
+            </el-breadcrumb>-->
+          </div>
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -113,9 +120,9 @@ export default {
   .el-main {
     background-color: #fff;
     color: #333;
-    text-align: center;
+    // text-align: center;
     .meta {
-      width: 12vw;
+      width: 20vw;
       height: 2vw;
     }
   }

@@ -54,7 +54,24 @@ router.beforeEach((to, from, next) => {
   }
 
   next();
-})
+});
+
+// 添加请求拦截器
+axios.interceptors.request.use((config) => {
+  //config中保存了每次请求的各种具体信息，url，data，method等参数；
+
+  // console.log(config);
+  // console.log(config.url);
+  //若是登录页是不带token值的
+  if (localStorage.getItem('token') && !config.headers.Authorization) {
+    //自动带上token值；
+    config.headers.Authorization = 'Bearer ' + localStorage.getItem("token")
+  }
+  return config;
+}, function (error) {
+  // 对请求错误做些什么
+  return Promise.reject(error);
+});
 
 new Vue({
   router,

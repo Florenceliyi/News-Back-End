@@ -30,7 +30,7 @@
       <el-table-column prop="user.nickname" label="作者"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="abc">
-          <el-button type="primary" @click="$router.push('/publishPage?id='+ abc.row.id)">编辑</el-button>
+          <el-button type="primary" @click="$router.push('/backEnd/publishPage?id='+ abc.row.id)">编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -50,8 +50,6 @@
 
 <script>
 export default {
-  //监听路由跳转形成面包屑；
-  watch: {},
   filters: {
     formartStr(value) {
       const reg = /^http/;
