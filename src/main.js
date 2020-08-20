@@ -13,7 +13,7 @@ import {
 //Element-UI 注册组件库
 Vue.use(ElementUI);
 //引入提示组件库;
-Vue.use(Message);
+// Vue.use(Message);
 
 // 绑定到原型
 Vue.prototype.$axios = axios;
@@ -27,7 +27,7 @@ Vue.config.productionTip = false;
 // 路由守卫,所有的跳转都会被拦截经过这里；
 router.beforeEach((to, from, next) => {
   // 是否有token
-  const hasToken = localStorage.getItem("Authorization");
+  const hasToken = localStorage.getItem("token");
   // console.log(to);
   // console.log(from);
   // 是否是个人中心页
@@ -41,7 +41,7 @@ router.beforeEach((to, from, next) => {
 
   //方法二：
   //to.meata.pageNeedAuth//查找路由元信息；
-  if (to.path === '/') {
+  if (to.path != '/login') {
     if (hasToken) {
       return next();
     } else {
